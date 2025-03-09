@@ -15,16 +15,17 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 12px;
             box-shadow: var(--shadow);
             text-align: center;
+            border-bottom: 4px solid var(--lakers-gold);
         }
         
         .timer-display {
             font-size: 6rem;
             font-weight: 700;
-            color: var(--lakers-purple);
+            color: var(--lakers-gold);
             margin: 2rem 0;
             font-family: 'Montserrat', sans-serif;
         }
@@ -85,12 +86,14 @@
         
         .form-group label {
             font-weight: 600;
-            color: var(--dark-gray);
+            color: var(--text-light);
         }
         
         .form-group input {
             padding: 0.5rem;
             border: 1px solid var(--medium-gray);
+            background-color: var(--dark-gray);
+            color: var(--text-light);
             border-radius: 4px;
             width: 100px;
         }
@@ -106,6 +109,7 @@
         .lebron-reaction img {
             max-height: 100%;
             border-radius: 8px;
+            box-shadow: var(--shadow);
         }
         
         .session-stats {
@@ -118,20 +122,41 @@
         }
         
         .stat-box {
-            background-color: var(--light-gray);
+            background-color: var(--dark-gray);
             padding: 1rem;
             border-radius: 8px;
+            box-shadow: var(--shadow);
         }
         
         .stat-box h4 {
-            color: var(--lakers-purple);
+            color: var(--lakers-gold);
             margin-bottom: 0.5rem;
         }
         
         .stat-box p {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--dark-gray);
+            color: var(--text-light);
+        }
+        
+        .page-header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background-color: var(--lakers-purple);
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--lakers-gold);
+        }
+        
+        .page-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         @media (max-width: 768px) {
@@ -163,7 +188,6 @@
                 <a href="kings-court.html" class="active">King's Court</a>
                 <a href="leflashcards.html">LeFlashcards</a>
                 <a href="playbook.html">The Playbook</a>
-                <a href="film-room.html">Film Room</a>
             </div>
             <div class="auth-buttons">
                 <button class="login-btn">Login</button>
@@ -259,7 +283,6 @@
                     <a href="kings-court.html">King's Court</a>
                     <a href="leflashcards.html">LeFlashcards</a>
                     <a href="playbook.html">The Playbook</a>
-                    <a href="film-room.html">Film Room</a>
                 </div>
                 <div class="footer-column">
                     <h3>Company</h3>
@@ -277,7 +300,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 LeStudy. All rights reserved.</p>
+            <p>&copy; 2025 Adriel Rivera. All rights reserved.</p>
         </div>
     </footer>
 
@@ -422,13 +445,13 @@
                         isBreak = false;
                         updateTimerDisplay(settings.longBreakTime * 60);
                         startBtn.textContent = 'Start Long Break';
-                        lebronImage.src = lebronImages.completed;
+                        lebronImage.src = lebronImages.longBreak;
                     } else {
                         isBreak = true;
                         isLongBreak = false;
                         updateTimerDisplay(settings.breakTime * 60);
                         startBtn.textContent = 'Start Break';
-                        lebronImage.src = lebronImages.completed;
+                        lebronImage.src = lebronImages.break;
                     }
                 } else {
                     // Break completed
@@ -548,7 +571,7 @@
             
             function playNotification() {
                 // Create audio element for notification
-                const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3');
+                const audio = new Audio('sounds/notification.mp3');
                 audio.play().catch(error => console.log('Audio play failed:', error));
             }
         });

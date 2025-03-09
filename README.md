@@ -20,9 +20,6 @@ Homework organization system with basketball-inspired priority levels:
 - Playoffs (Medium priority)
 - Finals (High priority)
 
-### Film Room (Coming Soon)
-Share and access study resources with your teammates.
-
 ## Tech Stack
 
 - HTML5

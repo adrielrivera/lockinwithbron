@@ -28,6 +28,13 @@
         .page-header h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            color: var(--lakers-gold);
+        }
+        
+        .page-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .container {
@@ -43,11 +50,12 @@
         }
         
         .sidebar {
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 8px;
             box-shadow: var(--shadow);
             padding: 1.5rem;
             height: fit-content;
+            border-bottom: 3px solid var(--lakers-gold);
         }
         
         .sidebar-section {
@@ -55,7 +63,7 @@
         }
         
         .sidebar-section h3 {
-            color: var(--lakers-purple);
+            color: var(--lakers-gold);
             margin-bottom: 1rem;
             font-size: 1.2rem;
             padding-bottom: 0.5rem;
@@ -74,7 +82,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: var(--dark-gray);
+            color: var(--text-light);
             padding: 0.5rem;
             border-radius: 4px;
             transition: var(--transition);
@@ -82,14 +90,14 @@
         
         .sidebar-list a:hover,
         .sidebar-list a.active {
-            background-color: rgba(85, 37, 131, 0.1);
-            color: var(--lakers-purple);
+            background-color: rgba(85, 37, 131, 0.3);
+            color: var(--lakers-gold);
         }
         
         .sidebar-list .count {
             margin-left: auto;
-            background-color: var(--lakers-purple);
-            color: white;
+            background-color: var(--lakers-gold);
+            color: var(--dark-gray);
             border-radius: 50%;
             width: 24px;
             height: 24px;
@@ -97,13 +105,15 @@
             align-items: center;
             justify-content: center;
             font-size: 0.8rem;
+            font-weight: 600;
         }
         
         .main-content {
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 8px;
             box-shadow: var(--shadow);
             padding: 2rem;
+            border-bottom: 3px solid var(--lakers-gold);
         }
         
         .content-header {
@@ -115,13 +125,13 @@
         
         .content-title {
             font-size: 1.8rem;
-            color: var(--lakers-purple);
+            color: var(--lakers-gold);
         }
         
         .add-task-btn {
             padding: 0.75rem 1.5rem;
-            background-color: var(--lakers-purple);
-            color: white;
+            background-color: var(--lakers-gold);
+            color: var(--dark-gray);
             border: none;
             border-radius: 4px;
             font-weight: 600;
@@ -133,7 +143,7 @@
         }
         
         .add-task-btn:hover {
-            background-color: #4a1f73;
+            background-color: #e0a41d;
             transform: translateY(-2px);
         }
         
@@ -157,11 +167,12 @@
             cursor: pointer;
             transition: var(--transition);
             font-weight: 500;
+            color: var(--text-light);
         }
         
         .filter-option.active {
-            background-color: rgba(85, 37, 131, 0.1);
-            color: var(--lakers-purple);
+            background-color: rgba(85, 37, 131, 0.3);
+            color: var(--lakers-gold);
         }
         
         .sort-dropdown {
@@ -170,8 +181,9 @@
         
         .sort-btn {
             padding: 0.5rem 1rem;
-            background-color: white;
+            background-color: var(--dark-gray);
             border: 1px solid var(--medium-gray);
+            color: var(--text-light);
             border-radius: 4px;
             cursor: pointer;
             display: flex;
@@ -186,7 +198,7 @@
         .task-item {
             padding: 1.5rem;
             border-radius: 8px;
-            background-color: var(--light-gray);
+            background-color: var(--dark-gray);
             margin-bottom: 1rem;
             transition: var(--transition);
             display: flex;
@@ -195,7 +207,7 @@
         }
         
         .task-item:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transform: translateY(-2px);
         }
         
@@ -203,18 +215,19 @@
             width: 24px;
             height: 24px;
             border-radius: 50%;
-            border: 2px solid var(--lakers-purple);
+            border: 2px solid var(--lakers-gold);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             flex-shrink: 0;
             margin-top: 0.25rem;
+            color: var(--dark-gray);
         }
         
         .task-checkbox.completed {
-            background-color: var(--lakers-purple);
-            color: white;
+            background-color: var(--lakers-gold);
+            color: var(--dark-gray);
         }
         
         .task-content {
@@ -225,7 +238,7 @@
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: var(--dark-gray);
+            color: var(--text-light);
         }
         
         .task-title.completed {
@@ -245,11 +258,12 @@
             display: flex;
             align-items: center;
             gap: 0.25rem;
+            color: var(--text-light);
         }
         
         .task-description {
             margin-top: 0.5rem;
-            color: #666;
+            color: #aaa;
         }
         
         .task-priority {
@@ -261,18 +275,18 @@
         }
         
         .priority-high {
-            background-color: rgba(229, 96, 32, 0.2);
+            background-color: rgba(229, 96, 32, 0.3);
             color: var(--accent-orange);
         }
         
         .priority-medium {
-            background-color: rgba(253, 185, 39, 0.2);
-            color: #d4a000;
+            background-color: rgba(253, 185, 39, 0.3);
+            color: var(--lakers-gold);
         }
         
         .priority-low {
-            background-color: rgba(85, 37, 131, 0.2);
-            color: var(--lakers-purple);
+            background-color: rgba(85, 37, 131, 0.3);
+            color: #a67fca;
         }
         
         .task-actions {
@@ -284,20 +298,20 @@
             width: 32px;
             height: 32px;
             border-radius: 4px;
-            background-color: white;
+            background-color: var(--dark-gray);
             border: 1px solid var(--medium-gray);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: var(--transition);
-            color: var(--dark-gray);
+            color: var(--text-light);
         }
         
         .task-action-btn:hover {
-            background-color: var(--lakers-purple);
-            color: white;
-            border-color: var(--lakers-purple);
+            background-color: var(--lakers-gold);
+            color: var(--dark-gray);
+            border-color: var(--lakers-gold);
         }
         
         .empty-state {
@@ -313,7 +327,7 @@
         
         .empty-state h3 {
             font-size: 1.5rem;
-            color: var(--dark-gray);
+            color: var(--text-light);
             margin-bottom: 1rem;
         }
         
@@ -332,14 +346,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7);
             z-index: 1000;
             justify-content: center;
             align-items: center;
         }
         
         .modal-content {
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 8px;
             width: 90%;
             max-width: 600px;
@@ -347,6 +361,8 @@
             overflow-y: auto;
             padding: 2rem;
             position: relative;
+            border-bottom: 3px solid var(--lakers-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
         
         .close-modal {
@@ -355,13 +371,18 @@
             right: 1rem;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--dark-gray);
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+        
+        .close-modal:hover {
+            color: var(--lakers-gold);
         }
         
         .modal-title {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
-            color: var(--lakers-purple);
+            color: var(--lakers-gold);
         }
         
         .form-group {
@@ -372,6 +393,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
+            color: var(--text-light);
         }
         
         .form-group input,
@@ -380,6 +402,8 @@
             width: 100%;
             padding: 0.75rem;
             border: 1px solid var(--medium-gray);
+            background-color: var(--dark-gray);
+            color: var(--text-light);
             border-radius: 4px;
             font-size: 1rem;
         }
@@ -408,7 +432,7 @@
         .cancel-btn {
             padding: 0.75rem 1.5rem;
             background-color: var(--medium-gray);
-            color: var(--dark-gray);
+            color: var(--text-light);
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -417,8 +441,8 @@
         
         .save-btn {
             padding: 0.75rem 1.5rem;
-            background-color: var(--lakers-purple);
-            color: white;
+            background-color: var(--lakers-gold);
+            color: var(--dark-gray);
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -426,11 +450,13 @@
         }
         
         .cancel-btn:hover {
-            background-color: #d1d1d1;
+            background-color: #555555;
+            transform: translateY(-2px);
         }
         
         .save-btn:hover {
-            background-color: #4a1f73;
+            background-color: #e0a41d;
+            transform: translateY(-2px);
         }
         
         @media (max-width: 992px) {
@@ -475,7 +501,6 @@
                 <a href="kings-court.html">King's Court</a>
                 <a href="leflashcards.html">LeFlashcards</a>
                 <a href="playbook.html" class="active">The Playbook</a>
-                <a href="film-room.html">Film Room</a>
             </div>
             <div class="auth-buttons">
                 <button class="login-btn">Login</button>
@@ -695,7 +720,6 @@
                     <a href="kings-court.html">King's Court</a>
                     <a href="leflashcards.html">LeFlashcards</a>
                     <a href="playbook.html">The Playbook</a>
-                    <a href="film-room.html">Film Room</a>
                 </div>
                 <div class="footer-column">
                     <h3>Company</h3>
@@ -713,7 +737,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 LeStudy. All rights reserved.</p>
+            <p>&copy; 2025 Adriel Rivera. All rights reserved.</p>
         </div>
     </footer>
 
@@ -727,11 +751,14 @@
             const closeModalBtn = document.getElementById('close-modal');
             const cancelTaskBtn = document.getElementById('cancel-task');
             const taskForm = document.getElementById('task-form');
+            const taskList = document.querySelector('.task-list');
             
             // Task elements
-            const taskCheckboxes = document.querySelectorAll('.task-checkbox');
-            const taskActionBtns = document.querySelectorAll('.task-action-btn');
             const filterOptions = document.querySelectorAll('.filter-option');
+            
+            // Load tasks from localStorage
+            loadTasks();
+            updateSidebarCounts();
             
             // Open modal
             addTaskBtn.addEventListener('click', function() {
@@ -765,16 +792,27 @@
                 const taskDueDate = document.getElementById('task-due-date').value;
                 const taskDueTime = document.getElementById('task-due-time').value;
                 
-                // Here you would typically send this data to a server
-                // For demo purposes, we'll just log it and close the modal
-                console.log('New Task:', {
+                // Create new task object
+                const newTask = {
+                    id: Date.now().toString(),
                     title: taskTitle,
                     description: taskDescription,
                     subject: taskSubject,
                     priority: taskPriority,
                     dueDate: taskDueDate,
-                    dueTime: taskDueTime
-                });
+                    dueTime: taskDueTime,
+                    completed: false,
+                    createdAt: new Date().toISOString()
+                };
+                
+                // Save task to localStorage
+                saveTask(newTask);
+                
+                // Add task to UI
+                addTaskToUI(newTask);
+                
+                // Update sidebar counts
+                updateSidebarCounts();
                 
                 // Show success message
                 alert('Task added successfully!');
@@ -783,21 +821,258 @@
                 closeModal();
             });
             
-            // Task checkbox toggle
-            taskCheckboxes.forEach(checkbox => {
-                checkbox.addEventListener('click', function() {
-                    this.classList.toggle('completed');
+            // Function to save a task to localStorage
+            function saveTask(task) {
+                // Get existing tasks
+                let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+                
+                // Add new task
+                tasks.push(task);
+                
+                // Save back to localStorage
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+            }
+            
+            // Function to load tasks from localStorage
+            function loadTasks() {
+                const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+                
+                // Clear existing tasks
+                taskList.innerHTML = '';
+                
+                // Add each task to the UI
+                tasks.forEach(task => {
+                    addTaskToUI(task);
+                });
+                
+                // Setup task interactions
+                setupTaskInteractions();
+            }
+            
+            // Function to add a task to the UI
+            function addTaskToUI(task) {
+                const priorityClass = getPriorityClass(task.priority);
+                const formattedDueDate = formatDueDate(task.dueDate, task.dueTime);
+                
+                const taskHTML = `
+                    <li class="task-item" data-task-id="${task.id}" data-subject="${task.subject}" data-priority="${task.priority}" data-completed="${task.completed}">
+                        <div class="task-checkbox ${task.completed ? 'completed' : ''}">${task.completed ? '✓' : ''}</div>
+                        <div class="task-content">
+                            <h3 class="task-title ${task.completed ? 'completed' : ''}">${task.title}</h3>
+                            <div class="task-details">
+                                <span class="task-detail"><i class="fas fa-calendar-alt"></i> Due: ${formattedDueDate}</span>
+                                <span class="task-detail"><i class="fas fa-book"></i> Subject: ${task.subject}</span>
+                                <span class="task-priority ${priorityClass}">${task.priority}</span>
+                            </div>
+                            <p class="task-description">${task.description}</p>
+                        </div>
+                        <div class="task-actions">
+                            <button class="task-action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                            <button class="task-action-btn delete-btn"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </li>
+                `;
+                
+                taskList.insertAdjacentHTML('beforeend', taskHTML);
+            }
+            
+            // Function to set up task interactions
+            function setupTaskInteractions() {
+                // Task checkbox toggle
+                const taskCheckboxes = document.querySelectorAll('.task-checkbox');
+                taskCheckboxes.forEach(checkbox => {
+                    checkbox.addEventListener('click', function() {
+                        const taskItem = this.closest('.task-item');
+                        const taskId = taskItem.dataset.taskId;
+                        const taskTitle = taskItem.querySelector('.task-title');
+                        
+                        // Toggle completed state
+                        this.classList.toggle('completed');
+                        taskTitle.classList.toggle('completed');
+                        
+                        if (this.classList.contains('completed')) {
+                            this.innerHTML = '✓';
+                            taskItem.dataset.completed = 'true';
+                        } else {
+                            this.innerHTML = '';
+                            taskItem.dataset.completed = 'false';
+                        }
+                        
+                        // Update task in localStorage
+                        updateTaskCompletionStatus(taskId, this.classList.contains('completed'));
+                        
+                        // Update sidebar counts
+                        updateSidebarCounts();
+                    });
+                });
+                
+                // Task action buttons (edit/delete)
+                const editButtons = document.querySelectorAll('.edit-btn');
+                const deleteButtons = document.querySelectorAll('.delete-btn');
+                
+                editButtons.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const taskItem = this.closest('.task-item');
+                        const taskId = taskItem.dataset.taskId;
+                        
+                        // For now, just show an alert
+                        alert(`Edit task: ${taskItem.querySelector('.task-title').textContent}`);
+                        // Here you would open an edit modal with the task details
+                    });
+                });
+                
+                deleteButtons.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const taskItem = this.closest('.task-item');
+                        const taskId = taskItem.dataset.taskId;
+                        const taskTitle = taskItem.querySelector('.task-title').textContent;
+                        
+                        if (confirm(`Are you sure you want to delete task: ${taskTitle}?`)) {
+                            // Remove task from UI
+                            taskItem.remove();
+                            
+                            // Remove task from localStorage
+                            deleteTask(taskId);
+                            
+                            // Update sidebar counts
+                            updateSidebarCounts();
+                        }
+                    });
+                });
+            }
+            
+            // Function to update task completion status in localStorage
+            function updateTaskCompletionStatus(taskId, completed) {
+                // Get tasks from localStorage
+                let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+                
+                // Find the task
+                const taskIndex = tasks.findIndex(t => t.id === taskId);
+                
+                if (taskIndex !== -1) {
+                    // Update completion status
+                    tasks[taskIndex].completed = completed;
                     
-                    const taskTitle = this.nextElementSibling.querySelector('.task-title');
-                    taskTitle.classList.toggle('completed');
-                    
-                    if (this.classList.contains('completed')) {
-                        this.innerHTML = '✓';
-                    } else {
-                        this.innerHTML = '';
+                    // Save back to localStorage
+                    localStorage.setItem('tasks', JSON.stringify(tasks));
+                }
+            }
+            
+            // Function to delete a task from localStorage
+            function deleteTask(taskId) {
+                // Get tasks from localStorage
+                let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+                
+                // Filter out the task to delete
+                tasks = tasks.filter(t => t.id !== taskId);
+                
+                // Save back to localStorage
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+            }
+            
+            // Function to update sidebar counts
+            function updateSidebarCounts() {
+                const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+                
+                // Count tasks by different criteria
+                const today = new Date().toISOString().split('T')[0];
+                const nextWeek = new Date();
+                nextWeek.setDate(nextWeek.getDate() + 7);
+                const nextWeekStr = nextWeek.toISOString().split('T')[0];
+                
+                const counts = {
+                    all: tasks.length,
+                    today: tasks.filter(t => t.dueDate === today && !t.completed).length,
+                    thisWeek: tasks.filter(t => t.dueDate >= today && t.dueDate <= nextWeekStr && !t.completed).length,
+                    upcoming: tasks.filter(t => t.dueDate > nextWeekStr && !t.completed).length,
+                    completed: tasks.filter(t => t.completed).length,
+                    subjects: {},
+                    priorities: {
+                        'Finals': 0,
+                        'Playoffs': 0,
+                        'Regular Season': 0
+                    }
+                };
+                
+                // Count by subject
+                tasks.forEach(task => {
+                    if (!task.completed) {
+                        // Count by subject
+                        if (!counts.subjects[task.subject]) {
+                            counts.subjects[task.subject] = 0;
+                        }
+                        counts.subjects[task.subject]++;
+                        
+                        // Count by priority
+                        if (counts.priorities[task.priority] !== undefined) {
+                            counts.priorities[task.priority]++;
+                        }
                     }
                 });
-            });
+                
+                // Update UI
+                document.querySelector('.sidebar-list li:nth-child(1) .count').textContent = counts.all;
+                document.querySelector('.sidebar-list li:nth-child(2) .count').textContent = counts.today;
+                document.querySelector('.sidebar-list li:nth-child(3) .count').textContent = counts.thisWeek;
+                document.querySelector('.sidebar-list li:nth-child(4) .count').textContent = counts.upcoming;
+                document.querySelector('.sidebar-list li:nth-child(5) .count').textContent = counts.completed;
+                
+                // Update priority counts
+                const priorityItems = document.querySelectorAll('.sidebar-section:nth-child(3) .sidebar-list li');
+                priorityItems[0].querySelector('.count').textContent = counts.priorities['Finals'];
+                priorityItems[1].querySelector('.count').textContent = counts.priorities['Playoffs'];
+                priorityItems[2].querySelector('.count').textContent = counts.priorities['Regular Season'];
+                
+                // Update subject counts (this is more complex as subjects are dynamic)
+                // For now, we'll just update the existing ones
+                const subjectItems = document.querySelectorAll('.sidebar-section:nth-child(2) .sidebar-list li');
+                subjectItems.forEach(item => {
+                    const subjectName = item.querySelector('a').textContent.trim();
+                    if (counts.subjects[subjectName] !== undefined) {
+                        item.querySelector('.count').textContent = counts.subjects[subjectName];
+                    } else {
+                        item.querySelector('.count').textContent = '0';
+                    }
+                });
+            }
+            
+            // Helper function to get priority class
+            function getPriorityClass(priority) {
+                switch(priority) {
+                    case 'Finals': return 'priority-high';
+                    case 'Playoffs': return 'priority-medium';
+                    case 'Regular Season': return 'priority-low';
+                    default: return 'priority-low';
+                }
+            }
+            
+            // Helper function to format due date
+            function formatDueDate(dateStr, timeStr) {
+                if (!dateStr) return 'No due date';
+                
+                const date = new Date(dateStr);
+                const now = new Date();
+                const tomorrow = new Date(now);
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                
+                // Format date
+                let formattedDate;
+                if (dateStr === now.toISOString().split('T')[0]) {
+                    formattedDate = 'Today';
+                } else if (dateStr === tomorrow.toISOString().split('T')[0]) {
+                    formattedDate = 'Tomorrow';
+                } else {
+                    // Format as "Mon, Jan 1"
+                    formattedDate = date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+                }
+                
+                // Add time if provided
+                if (timeStr) {
+                    formattedDate += `, ${timeStr}`;
+                }
+                
+                return formattedDate;
+            }
             
             // Filter options
             filterOptions.forEach(option => {
@@ -805,29 +1080,29 @@
                     filterOptions.forEach(opt => opt.classList.remove('active'));
                     this.classList.add('active');
                     
-                    // Here you would filter the tasks based on the selected option
-                    // For demo purposes, we'll just log the selected filter
-                    console.log('Filter selected:', this.textContent);
+                    const filter = this.textContent.toLowerCase();
+                    filterTasks(filter);
                 });
             });
             
-            // Task action buttons (edit/delete)
-            taskActionBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const taskItem = this.closest('.task-item');
-                    const taskTitle = taskItem.querySelector('.task-title').textContent;
+            // Function to filter tasks
+            function filterTasks(filter) {
+                const taskItems = document.querySelectorAll('.task-item');
+                
+                taskItems.forEach(item => {
+                    const isCompleted = item.dataset.completed === 'true';
                     
-                    if (this.querySelector('.fa-edit')) {
-                        // Edit task
-                        alert(`Edit task: ${taskTitle}`);
-                    } else if (this.querySelector('.fa-trash-alt')) {
-                        // Delete task
-                        if (confirm(`Are you sure you want to delete task: ${taskTitle}?`)) {
-                            taskItem.remove();
-                        }
+                    if (filter === 'all') {
+                        item.style.display = '';
+                    } else if (filter === 'active' && !isCompleted) {
+                        item.style.display = '';
+                    } else if (filter === 'completed' && isCompleted) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
                     }
                 });
-            });
+            }
         });
     </script>
 </body>

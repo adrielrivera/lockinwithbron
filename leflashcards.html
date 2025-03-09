@@ -28,6 +28,13 @@
         .page-header h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            color: var(--lakers-gold);
+        }
+        
+        .page-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .container {
@@ -44,7 +51,7 @@
         }
         
         .deck-card {
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 8px;
             box-shadow: var(--shadow);
             overflow: hidden;
@@ -52,11 +59,12 @@
             position: relative;
             display: flex;
             flex-direction: column;
+            border-bottom: 3px solid var(--lakers-gold);
         }
         
         .deck-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
         
         .deck-header {
@@ -69,6 +77,7 @@
         .deck-header h3 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
+            color: var(--lakers-gold);
         }
         
         .deck-stats {
@@ -88,6 +97,7 @@
         .deck-description {
             margin-bottom: 1.5rem;
             flex-grow: 1;
+            color: var(--text-light);
         }
         
         .deck-actions {
@@ -102,13 +112,14 @@
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
-            background-color: var(--lakers-purple);
+            background-color: var(--lakers-gold);
             border: none;
-            color: white;
+            color: var(--dark-gray);
         }
         
         .deck-btn:hover {
-            background-color: #4a1f73;
+            background-color: #e0a41d;
+            transform: translateY(-2px);
         }
         
         .deck-level {
@@ -123,12 +134,12 @@
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            color: var(--dark-gray);
+            color: var(--lakers-purple);
         }
         
         .create-deck {
-            background-color: rgba(85, 37, 131, 0.1);
-            border: 2px dashed var(--lakers-purple);
+            background-color: rgba(85, 37, 131, 0.2);
+            border: 2px dashed var(--lakers-gold);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -137,21 +148,27 @@
             padding: 3rem 1.5rem;
             cursor: pointer;
             transition: var(--transition);
+            border-radius: 8px;
         }
         
         .create-deck:hover {
-            background-color: rgba(85, 37, 131, 0.15);
+            background-color: rgba(85, 37, 131, 0.3);
+            transform: translateY(-5px);
         }
         
         .create-deck-icon {
             font-size: 2.5rem;
-            color: var(--lakers-purple);
+            color: var(--lakers-gold);
             margin-bottom: 1rem;
         }
         
         .create-deck h3 {
-            color: var(--lakers-purple);
+            color: var(--lakers-gold);
             margin-bottom: 0.5rem;
+        }
+        
+        .create-deck p {
+            color: var(--text-light);
         }
         
         .flashcard-levels {
@@ -159,7 +176,7 @@
             justify-content: space-between;
             margin: 2rem 0;
             padding: 1rem;
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 8px;
             box-shadow: var(--shadow);
         }
@@ -184,19 +201,19 @@
         .level-icon {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
-            color: var(--lakers-purple);
+            color: var(--lakers-gold);
         }
         
         .level-name {
             font-weight: 600;
             margin-bottom: 0.25rem;
-            color: var(--dark-gray);
+            color: var(--text-light);
         }
         
         .level-count {
             font-size: 1.25rem;
             font-weight: 700;
-            color: var(--lakers-purple);
+            color: var(--lakers-gold);
         }
         
         .search-bar {
@@ -208,14 +225,16 @@
             flex-grow: 1;
             padding: 0.75rem 1rem;
             border: 1px solid var(--medium-gray);
+            background-color: var(--dark-gray);
+            color: var(--text-light);
             border-radius: 4px 0 0 4px;
             font-size: 1rem;
         }
         
         .search-btn {
             padding: 0.75rem 1.5rem;
-            background-color: var(--lakers-purple);
-            color: white;
+            background-color: var(--lakers-gold);
+            color: var(--dark-gray);
             border: none;
             border-radius: 0 4px 4px 0;
             cursor: pointer;
@@ -223,7 +242,7 @@
         }
         
         .search-btn:hover {
-            background-color: #4a1f73;
+            background-color: #e0a41d;
         }
         
         .flashcard-modal {
@@ -233,14 +252,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7);
             z-index: 1000;
             justify-content: center;
             align-items: center;
         }
         
         .modal-content {
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 8px;
             width: 90%;
             max-width: 600px;
@@ -248,6 +267,8 @@
             overflow-y: auto;
             padding: 2rem;
             position: relative;
+            border-bottom: 3px solid var(--lakers-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
         
         .close-modal {
@@ -256,13 +277,18 @@
             right: 1rem;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--dark-gray);
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+        
+        .close-modal:hover {
+            color: var(--lakers-gold);
         }
         
         .modal-title {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
-            color: var(--lakers-purple);
+            color: var(--lakers-gold);
         }
         
         .form-group {
@@ -273,6 +299,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
+            color: var(--text-light);
         }
         
         .form-group input,
@@ -280,6 +307,8 @@
             width: 100%;
             padding: 0.75rem;
             border: 1px solid var(--medium-gray);
+            background-color: var(--dark-gray);
+            color: var(--text-light);
             border-radius: 4px;
             font-size: 1rem;
         }
@@ -299,7 +328,7 @@
         .cancel-btn {
             padding: 0.75rem 1.5rem;
             background-color: var(--medium-gray);
-            color: var(--dark-gray);
+            color: var(--text-light);
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -308,8 +337,8 @@
         
         .save-btn {
             padding: 0.75rem 1.5rem;
-            background-color: var(--lakers-purple);
-            color: white;
+            background-color: var(--lakers-gold);
+            color: var(--dark-gray);
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -317,11 +346,153 @@
         }
         
         .cancel-btn:hover {
-            background-color: #d1d1d1;
+            background-color: #555555;
+            transform: translateY(-2px);
         }
         
         .save-btn:hover {
+            background-color: #e0a41d;
+            transform: translateY(-2px);
+        }
+        
+        /* Flashcard Study Styles */
+        .study-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .flashcard {
+            width: 100%;
+            height: 300px;
+            perspective: 1000px;
+            margin-bottom: 1rem;
+        }
+        
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            border-radius: 8px;
+            background-color: white;
+        }
+        
+        .flashcard-front {
+            background-color: var(--lakers-purple);
+            color: white;
+        }
+        
+        .flashcard-back {
+            background-color: var(--lakers-gold);
+            color: var(--dark-gray);
+            transform: rotateY(180deg);
+        }
+        
+        .flashcard-front p, .flashcard-back p {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .study-controls {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .study-btn {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--lakers-purple);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .study-btn:hover {
             background-color: #4a1f73;
+        }
+        
+        .rating-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .rating-btn {
+            flex: 1;
+            padding: 0.75rem 0;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .rating-btn.hard {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .rating-btn.good {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .rating-btn.easy {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .rating-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .study-progress {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: var(--lakers-purple);
+            width: 0%;
+            transition: width 0.3s ease;
         }
         
         @media (max-width: 768px) {
@@ -351,7 +522,6 @@
                 <a href="kings-court.html">King's Court</a>
                 <a href="leflashcards.html" class="active">LeFlashcards</a>
                 <a href="playbook.html">The Playbook</a>
-                <a href="film-room.html">Film Room</a>
             </div>
             <div class="auth-buttons">
                 <button class="login-btn">Login</button>
@@ -498,6 +668,63 @@
                 </form>
             </div>
         </div>
+        
+        <!-- Create Flashcard Modal -->
+        <div class="flashcard-modal" id="create-card-modal">
+            <div class="modal-content">
+                <span class="close-modal" id="close-card-modal">&times;</span>
+                <h2 class="modal-title">Add New Flashcard</h2>
+                <form id="create-card-form">
+                    <input type="hidden" id="card-deck-id">
+                    <div class="form-group">
+                        <label for="card-front">Front (Question)</label>
+                        <textarea id="card-front" placeholder="Enter the question or front side of the flashcard..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-back">Back (Answer)</label>
+                        <textarea id="card-back" placeholder="Enter the answer or back side of the flashcard..." required></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="cancel-btn" id="cancel-card">Cancel</button>
+                        <button type="submit" class="save-btn">Add Card</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Study Flashcards Modal -->
+        <div class="flashcard-modal" id="study-modal">
+            <div class="modal-content">
+                <span class="close-modal" id="close-study-modal">&times;</span>
+                <h2 class="modal-title" id="study-deck-title">Study Deck</h2>
+                <div class="study-container">
+                    <div class="flashcard" id="current-card">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <p id="card-front-text">Question goes here...</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <p id="card-back-text">Answer goes here...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="study-controls">
+                        <button class="study-btn" id="flip-btn">Flip Card</button>
+                        <div class="rating-buttons">
+                            <button class="rating-btn hard" id="hard-btn">Hard</button>
+                            <button class="rating-btn good" id="good-btn">Good</button>
+                            <button class="rating-btn easy" id="easy-btn">Easy</button>
+                        </div>
+                        <div class="study-progress">
+                            <span id="cards-count">Card 1/10</span>
+                            <div class="progress-bar">
+                                <div class="progress" id="study-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -512,7 +739,6 @@
                     <a href="kings-court.html">King's Court</a>
                     <a href="leflashcards.html">LeFlashcards</a>
                     <a href="playbook.html">The Playbook</a>
-                    <a href="film-room.html">Film Room</a>
                 </div>
                 <div class="footer-column">
                     <h3>Company</h3>
@@ -530,7 +756,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 LeStudy. All rights reserved.</p>
+            <p>&copy; 2025 Adriel Rivera. All rights reserved.</p>
         </div>
     </footer>
 
@@ -544,6 +770,11 @@
             const closeModalBtn = document.getElementById('close-modal');
             const cancelCreateBtn = document.getElementById('cancel-create');
             const createDeckForm = document.getElementById('create-deck-form');
+            const deckGrid = document.querySelector('.deck-grid');
+            
+            // Load existing decks from localStorage
+            loadDecks();
+            updateLevelCounts();
             
             // Open modal
             createDeckBtn.addEventListener('click', function() {
@@ -574,13 +805,26 @@
                 const deckDescription = document.getElementById('deck-description').value;
                 const deckCategory = document.getElementById('deck-category').value;
                 
-                // Here you would typically send this data to a server
-                // For demo purposes, we'll just log it and close the modal
-                console.log('New Deck:', {
+                // Create new deck object
+                const newDeck = {
+                    id: Date.now().toString(),
                     title: deckTitle,
                     description: deckDescription,
-                    category: deckCategory
-                });
+                    category: deckCategory,
+                    cards: [],
+                    level: 'Rookie',
+                    lastStudied: null,
+                    dueCards: 0
+                };
+                
+                // Save deck to localStorage
+                saveNewDeck(newDeck);
+                
+                // Add deck to UI
+                addDeckToUI(newDeck);
+                
+                // Update level counts
+                updateLevelCounts();
                 
                 // Show success message
                 alert('Deck created successfully!');
@@ -590,14 +834,438 @@
             });
             
             // Deck buttons functionality
-            const studyButtons = document.querySelectorAll('.deck-btn');
-            studyButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const deckTitle = this.closest('.deck-card').querySelector('h3').textContent;
-                    alert(`Starting study session for: ${deckTitle}`);
-                    // Here you would redirect to the study interface for this deck
+            function setupDeckButtons() {
+                const studyButtons = document.querySelectorAll('.deck-btn');
+                studyButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const deckCard = this.closest('.deck-card');
+                        const deckId = deckCard.dataset.deckId;
+                        const deckTitle = deckCard.querySelector('h3').textContent;
+                        
+                        // Open study modal for this deck
+                        openStudyModal(deckId, deckTitle);
+                    });
                 });
+            }
+            
+            // Function to save a new deck to localStorage
+            function saveNewDeck(deck) {
+                // Get existing decks
+                let decks = JSON.parse(localStorage.getItem('flashcardDecks')) || [];
+                
+                // Add new deck
+                decks.push(deck);
+                
+                // Save back to localStorage
+                localStorage.setItem('flashcardDecks', JSON.stringify(decks));
+            }
+            
+            // Function to load decks from localStorage
+            function loadDecks() {
+                const decks = JSON.parse(localStorage.getItem('flashcardDecks')) || [];
+                
+                // Clear existing decks (except the create deck button)
+                const existingDeckCards = document.querySelectorAll('.deck-card:not(.create-deck)');
+                existingDeckCards.forEach(card => card.remove());
+                
+                // Add each deck to the UI
+                decks.forEach(deck => {
+                    addDeckToUI(deck);
+                });
+                
+                // Setup buttons for the loaded decks
+                setupDeckButtons();
+            }
+            
+            // Function to add a deck to the UI
+            function addDeckToUI(deck) {
+                const deckHTML = `
+                    <div class="deck-card" data-deck-id="${deck.id}">
+                        <div class="deck-header">
+                            <h3>${deck.title}</h3>
+                            <div class="deck-stats">
+                                <span>Cards: ${deck.cards.length}</span>
+                                <span>Due: ${deck.dueCards}</span>
+                            </div>
+                            <div class="deck-level">${getLevelNumber(deck.level)}</div>
+                        </div>
+                        <div class="deck-body">
+                            <div class="deck-description">
+                                <p>${deck.description}</p>
+                            </div>
+                            <div class="deck-actions">
+                                <button class="deck-btn">Study Now</button>
+                                <span>Last: ${deck.lastStudied ? formatLastStudied(deck.lastStudied) : 'Never'}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Insert before the create deck button
+                createDeckBtn.insertAdjacentHTML('beforebegin', deckHTML);
+                
+                // Add context menu for adding cards
+                const newDeckCard = document.querySelector(`.deck-card[data-deck-id="${deck.id}"]`);
+                newDeckCard.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    openAddCardModal(deck.id);
+                });
+                
+                // Add double-click to add cards
+                newDeckCard.addEventListener('dblclick', function() {
+                    openAddCardModal(deck.id);
+                });
+            }
+            
+            // Function to open the add card modal
+            function openAddCardModal(deckId) {
+                const createCardModal = document.getElementById('create-card-modal');
+                const cardDeckIdInput = document.getElementById('card-deck-id');
+                
+                // Set the deck ID in the hidden input
+                cardDeckIdInput.value = deckId;
+                
+                // Show the modal
+                createCardModal.style.display = 'flex';
+            }
+            
+            // Function to open the study modal
+            function openStudyModal(deckId, deckTitle) {
+                const studyModal = document.getElementById('study-modal');
+                const studyDeckTitle = document.getElementById('study-deck-title');
+                
+                // Get the deck from localStorage
+                const decks = JSON.parse(localStorage.getItem('flashcardDecks')) || [];
+                const deck = decks.find(d => d.id === deckId);
+                
+                if (!deck || deck.cards.length === 0) {
+                    alert('This deck has no cards yet. Add some cards first!');
+                    return;
+                }
+                
+                // Set the deck title
+                studyDeckTitle.textContent = `Study: ${deckTitle}`;
+                
+                // Initialize the study session
+                initStudySession(deck);
+                
+                // Show the modal
+                studyModal.style.display = 'flex';
+            }
+            
+            // Function to initialize a study session
+            function initStudySession(deck) {
+                // Get the cards to study (for now, just use all cards)
+                const cardsToStudy = [...deck.cards];
+                
+                // Shuffle the cards
+                shuffleArray(cardsToStudy);
+                
+                // Store the study session data
+                const studySession = {
+                    deckId: deck.id,
+                    cards: cardsToStudy,
+                    currentCardIndex: 0,
+                    totalCards: cardsToStudy.length
+                };
+                
+                // Store in sessionStorage
+                sessionStorage.setItem('currentStudySession', JSON.stringify(studySession));
+                
+                // Display the first card
+                displayCurrentCard();
+                
+                // Update progress
+                updateStudyProgress();
+            }
+            
+            // Function to display the current card
+            function displayCurrentCard() {
+                const studySession = JSON.parse(sessionStorage.getItem('currentStudySession'));
+                const cardFrontText = document.getElementById('card-front-text');
+                const cardBackText = document.getElementById('card-back-text');
+                const currentCard = document.getElementById('current-card');
+                
+                // Reset card to front side
+                currentCard.classList.remove('flipped');
+                
+                // Get the current card
+                const card = studySession.cards[studySession.currentCardIndex];
+                
+                // Set the card text
+                cardFrontText.textContent = card.front;
+                cardBackText.textContent = card.back;
+                
+                // Update card count
+                document.getElementById('cards-count').textContent = 
+                    `Card ${studySession.currentCardIndex + 1}/${studySession.totalCards}`;
+            }
+            
+            // Function to update study progress
+            function updateStudyProgress() {
+                const studySession = JSON.parse(sessionStorage.getItem('currentStudySession'));
+                const progressElement = document.getElementById('study-progress');
+                
+                // Calculate progress percentage
+                const progress = ((studySession.currentCardIndex + 1) / studySession.totalCards) * 100;
+                
+                // Update progress bar
+                progressElement.style.width = `${progress}%`;
+            }
+            
+            // Helper function to shuffle an array
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+            
+            // Helper function to get level number for display
+            function getLevelNumber(level) {
+                switch(level) {
+                    case 'Rookie': return '1';
+                    case 'Veteran': return '2';
+                    case 'All-Star': return '3';
+                    case 'GOAT': return '4';
+                    default: return '1';
+                }
+            }
+            
+            // Helper function to format last studied date
+            function formatLastStudied(dateString) {
+                const date = new Date(dateString);
+                const now = new Date();
+                const diffTime = Math.abs(now - date);
+                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+                
+                if (diffDays === 0) {
+                    return 'Today';
+                } else if (diffDays === 1) {
+                    return 'Yesterday';
+                } else if (diffDays < 7) {
+                    return `${diffDays}d ago`;
+                } else if (diffDays < 30) {
+                    return `${Math.floor(diffDays / 7)}w ago`;
+                } else {
+                    return `${Math.floor(diffDays / 30)}m ago`;
+                }
+            }
+            
+            // Function to update level counts in the UI
+            function updateLevelCounts() {
+                const decks = JSON.parse(localStorage.getItem('flashcardDecks')) || [];
+                
+                // Count decks by level
+                const levelCounts = {
+                    'Rookie': 0,
+                    'Veteran': 0,
+                    'All-Star': 0,
+                    'GOAT': 0
+                };
+                
+                decks.forEach(deck => {
+                    if (levelCounts[deck.level] !== undefined) {
+                        levelCounts[deck.level]++;
+                    }
+                });
+                
+                // Update UI
+                document.querySelector('.level-item:nth-child(1) .level-count').textContent = levelCounts['Rookie'];
+                document.querySelector('.level-item:nth-child(2) .level-count').textContent = levelCounts['Veteran'];
+                document.querySelector('.level-item:nth-child(3) .level-count').textContent = levelCounts['All-Star'];
+                document.querySelector('.level-item:nth-child(4) .level-count').textContent = levelCounts['GOAT'];
+            }
+            
+            // Set up the create card form
+            const createCardForm = document.getElementById('create-card-form');
+            const closeCardModalBtn = document.getElementById('close-card-modal');
+            const cancelCardBtn = document.getElementById('cancel-card');
+            
+            // Close card modal
+            function closeCardModal() {
+                const createCardModal = document.getElementById('create-card-modal');
+                createCardModal.style.display = 'none';
+                createCardForm.reset();
+            }
+            
+            closeCardModalBtn.addEventListener('click', closeCardModal);
+            cancelCardBtn.addEventListener('click', closeCardModal);
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                const createCardModal = document.getElementById('create-card-modal');
+                if (event.target === createCardModal) {
+                    closeCardModal();
+                }
             });
+            
+            // Card form submission
+            createCardForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const deckId = document.getElementById('card-deck-id').value;
+                const cardFront = document.getElementById('card-front').value;
+                const cardBack = document.getElementById('card-back').value;
+                
+                // Create new card
+                const newCard = {
+                    id: Date.now().toString(),
+                    front: cardFront,
+                    back: cardBack,
+                    level: 'Rookie',
+                    nextReview: new Date().toISOString()
+                };
+                
+                // Add card to deck
+                addCardToDeck(deckId, newCard);
+                
+                // Show success message
+                alert('Card added successfully!');
+                
+                // Close modal
+                closeCardModal();
+            });
+            
+            // Function to add a card to a deck
+            function addCardToDeck(deckId, card) {
+                // Get decks from localStorage
+                let decks = JSON.parse(localStorage.getItem('flashcardDecks')) || [];
+                
+                // Find the deck
+                const deckIndex = decks.findIndex(d => d.id === deckId);
+                
+                if (deckIndex !== -1) {
+                    // Add card to deck
+                    decks[deckIndex].cards.push(card);
+                    
+                    // Update due cards count
+                    decks[deckIndex].dueCards = decks[deckIndex].cards.length;
+                    
+                    // Save back to localStorage
+                    localStorage.setItem('flashcardDecks', JSON.stringify(decks));
+                    
+                    // Reload decks to update UI
+                    loadDecks();
+                }
+            }
+            
+            // Set up study modal
+            const closeStudyModalBtn = document.getElementById('close-study-modal');
+            const flipBtn = document.getElementById('flip-btn');
+            const hardBtn = document.getElementById('hard-btn');
+            const goodBtn = document.getElementById('good-btn');
+            const easyBtn = document.getElementById('easy-btn');
+            
+            // Close study modal
+            function closeStudyModal() {
+                const studyModal = document.getElementById('study-modal');
+                studyModal.style.display = 'none';
+                
+                // Clear study session
+                sessionStorage.removeItem('currentStudySession');
+            }
+            
+            closeStudyModalBtn.addEventListener('click', closeStudyModal);
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                const studyModal = document.getElementById('study-modal');
+                if (event.target === studyModal) {
+                    closeStudyModal();
+                }
+            });
+            
+            // Flip card
+            flipBtn.addEventListener('click', function() {
+                const currentCard = document.getElementById('current-card');
+                currentCard.classList.toggle('flipped');
+                
+                // Show rating buttons if card is flipped to back
+                const ratingButtons = document.querySelector('.rating-buttons');
+                if (currentCard.classList.contains('flipped')) {
+                    ratingButtons.style.display = 'flex';
+                    flipBtn.textContent = 'Show Front';
+                } else {
+                    ratingButtons.style.display = 'none';
+                    flipBtn.textContent = 'Flip Card';
+                }
+            });
+            
+            // Rating buttons
+            hardBtn.addEventListener('click', function() {
+                rateCard('hard');
+            });
+            
+            goodBtn.addEventListener('click', function() {
+                rateCard('good');
+            });
+            
+            easyBtn.addEventListener('click', function() {
+                rateCard('easy');
+            });
+            
+            // Function to rate a card and move to the next one
+            function rateCard(rating) {
+                // Get study session
+                let studySession = JSON.parse(sessionStorage.getItem('currentStudySession'));
+                
+                // Move to next card
+                studySession.currentCardIndex++;
+                
+                // Check if we've gone through all cards
+                if (studySession.currentCardIndex >= studySession.totalCards) {
+                    // Study session complete
+                    alert('Study session complete!');
+                    
+                    // Update last studied date for the deck
+                    updateDeckLastStudied(studySession.deckId);
+                    
+                    // Close the modal
+                    closeStudyModal();
+                    return;
+                }
+                
+                // Save updated session
+                sessionStorage.setItem('currentStudySession', JSON.stringify(studySession));
+                
+                // Display the next card
+                displayCurrentCard();
+                
+                // Update progress
+                updateStudyProgress();
+                
+                // Reset rating buttons
+                const ratingButtons = document.querySelector('.rating-buttons');
+                ratingButtons.style.display = 'none';
+                
+                // Reset flip button
+                flipBtn.textContent = 'Flip Card';
+            }
+            
+            // Function to update the last studied date for a deck
+            function updateDeckLastStudied(deckId) {
+                // Get decks from localStorage
+                let decks = JSON.parse(localStorage.getItem('flashcardDecks')) || [];
+                
+                // Find the deck
+                const deckIndex = decks.findIndex(d => d.id === deckId);
+                
+                if (deckIndex !== -1) {
+                    // Update last studied date
+                    decks[deckIndex].lastStudied = new Date().toISOString();
+                    
+                    // Save back to localStorage
+                    localStorage.setItem('flashcardDecks', JSON.stringify(decks));
+                    
+                    // Reload decks to update UI
+                    loadDecks();
+                }
+            }
+            
+            // Initialize deck buttons
+            setupDeckButtons();
         });
     </script>
 </body>
