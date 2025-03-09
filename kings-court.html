@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King's Court - LeStudy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* King's Court specific styles */
+        .timer-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .timer-display {
+            font-size: 6rem;
+            font-weight: 700;
+            color: var(--lakers-purple);
+            margin: 2rem 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .timer-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timer-btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            background-color: var(--lakers-purple);
+            border: none;
+            color: var(--white);
+        }
+        
+        .timer-btn:hover {
+            background-color: #4a1f73;
+            transform: translateY(-2px);
+        }
+        
+        .timer-btn.reset {
+            background-color: var(--lakers-gold);
+            color: var(--dark-gray);
+        }
+        
+        .timer-btn.reset:hover {
+            background-color: #e0a41d;
+        }
+        
+        .timer-settings {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--medium-gray);
+        }
+        
+        .settings-form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+        
+        .form-group input {
+            padding: 0.5rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: 4px;
+            width: 100px;
+        }
+        
+        .lebron-reaction {
+            margin: 2rem 0;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lebron-reaction img {
+            max-height: 100%;
+            border-radius: 8px;
+        }
+        
+        .session-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--medium-gray);
+        }
+        
+        .stat-box {
+            background-color: var(--light-gray);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .stat-box h4 {
+            color: var(--lakers-purple);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-box p {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+        }
+        
+        @media (max-width: 768px) {
+            .timer-display {
+                font-size: 4rem;
+            }
+            
+            .timer-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .timer-btn {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <span class="crown-icon"><i class="fas fa-crown"></i></span>
+                <h1>LeStudy</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="kings-court.html" class="active">King's Court</a>
+                <a href="leflashcards.html">LeFlashcards</a>
+                <a href="playbook.html">The Playbook</a>
+                <a href="film-room.html">Film Room</a>
+            </div>
+            <div class="auth-buttons">
+                <button class="login-btn">Login</button>
+                <button class="signup-btn">Sign Up</button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>King's Court</h1>
+                <p>Dominate your study sessions with the LeBron-inspired Pomodoro timer</p>
+            </div>
+        </section>
+
+        <section class="timer-section">
+            <div class="container">
+                <div class="timer-container">
+                    <h2>Study Timer</h2>
+                    <p>Focus like LeBron in the playoffs</p>
+                    
+                    <div class="lebron-reaction">
+                        <img src="images/lebron-focused.jpg" alt="LeBron Focused" id="lebron-image">
+                    </div>
+                    
+                    <div class="timer-display" id="timer">
+                        25:00
+                    </div>
+                    
+                    <div class="timer-controls">
+                        <button class="timer-btn start" id="start-btn">Start Focus</button>
+                        <button class="timer-btn pause" id="pause-btn" disabled>Pause</button>
+                        <button class="timer-btn reset" id="reset-btn">Reset</button>
+                    </div>
+                    
+                    <div class="session-stats">
+                        <div class="stat-box">
+                            <h4>Focus Sessions</h4>
+                            <p id="session-count">0</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>Total Focus Time</h4>
+                            <p id="total-time">0 min</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>Current Streak</h4>
+                            <p id="current-streak">0 days</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timer-settings">
+                        <h3>Timer Settings</h3>
+                        <div class="settings-form">
+                            <div class="form-group">
+                                <label for="focus-time">Focus Time (min)</label>
+                                <input type="number" id="focus-time" value="25" min="1" max="60">
+                            </div>
+                            <div class="form-group">
+                                <label for="break-time">Break Time (min)</label>
+                                <input type="number" id="break-time" value="5" min="1" max="30">
+                            </div>
+                            <div class="form-group">
+                                <label for="long-break-time">Long Break (min)</label>
+                                <input type="number" id="long-break-time" value="15" min="5" max="60">
+                            </div>
+                            <div class="form-group">
+                                <label for="sessions">Sessions before long break</label>
+                                <input type="number" id="sessions" value="4" min="1" max="10">
+                            </div>
+                        </div>
+                        <button class="timer-btn" id="save-settings">Save Settings</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="crown-icon"><i class="fas fa-crown"></i></span>
+                <h2>LeStudy</h2>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Features</h3>
+                    <a href="kings-court.html">King's Court</a>
+                    <a href="leflashcards.html">LeFlashcards</a>
+                    <a href="playbook.html">The Playbook</a>
+                    <a href="film-room.html">Film Room</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <a href="#">About Us</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <a href="#">Help Center</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 LeStudy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // King's Court Timer Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Timer elements
+            const timerDisplay = document.getElementById('timer');
+            const startBtn = document.getElementById('start-btn');
+            const pauseBtn = document.getElementById('pause-btn');
+            const resetBtn = document.getElementById('reset-btn');
+            const saveSettingsBtn = document.getElementById('save-settings');
+            const lebronImage = document.getElementById('lebron-image');
+            
+            // Stats elements
+            const sessionCount = document.getElementById('session-count');
+            const totalTime = document.getElementById('total-time');
+            const currentStreak = document.getElementById('current-streak');
+            
+            // Settings inputs
+            const focusTimeInput = document.getElementById('focus-time');
+            const breakTimeInput = document.getElementById('break-time');
+            const longBreakTimeInput = document.getElementById('long-break-time');
+            const sessionsInput = document.getElementById('sessions');
+            
+            // Timer variables
+            let timer;
+            let timeLeft;
+            let isRunning = false;
+            let isPaused = false;
+            let isBreak = false;
+            let isLongBreak = false;
+            let completedSessions = 0;
+            let totalFocusTime = 0;
+            
+            // LeBron reaction images
+            const lebronImages = {
+                focus: 'images/lebron-focused.jpg',
+                break: 'images/lebron-relaxed.jpg',
+                longBreak: 'images/lebron-celebrating.jpg',
+                completed: 'images/lebron-victory.jpg'
+            };
+            
+            // Timer settings
+            let settings = {
+                focusTime: 25,
+                breakTime: 5,
+                longBreakTime: 15,
+                sessionsBeforeLongBreak: 4
+            };
+            
+            // Initialize timer display
+            updateTimerDisplay(settings.focusTime * 60);
+            
+            // Load saved stats and settings from localStorage
+            loadStats();
+            loadSettings();
+            
+            // Event listeners
+            startBtn.addEventListener('click', startTimer);
+            pauseBtn.addEventListener('click', pauseTimer);
+            resetBtn.addEventListener('click', resetTimer);
+            saveSettingsBtn.addEventListener('click', saveSettings);
+            
+            // Timer functions
+            function startTimer() {
+                if (isPaused) {
+                    // Resume timer
+                    isPaused = false;
+                } else {
+                    // Start new timer
+                    if (isBreak || isLongBreak) {
+                        timeLeft = isLongBreak ? settings.longBreakTime * 60 : settings.breakTime * 60;
+                    } else {
+                        timeLeft = settings.focusTime * 60;
+                    }
+                }
+                
+                isRunning = true;
+                startBtn.disabled = true;
+                pauseBtn.disabled = false;
+                
+                // Update LeBron image
+                if (isBreak) {
+                    lebronImage.src = lebronImages.break;
+                } else if (isLongBreak) {
+                    lebronImage.src = lebronImages.longBreak;
+                } else {
+                    lebronImage.src = lebronImages.focus;
+                }
+                
+                timer = setInterval(function() {
+                    timeLeft--;
+                    updateTimerDisplay(timeLeft);
+                    
+                    if (timeLeft <= 0) {
+                        clearInterval(timer);
+                        timerCompleted();
+                    }
+                }, 1000);
+            }
+            
+            function pauseTimer() {
+                clearInterval(timer);
+                isRunning = false;
+                isPaused = true;
+                startBtn.disabled = false;
+                pauseBtn.disabled = true;
+                startBtn.textContent = 'Resume';
+            }
+            
+            function resetTimer() {
+                clearInterval(timer);
+                isRunning = false;
+                isPaused = false;
+                
+                if (isBreak || isLongBreak) {
+                    isBreak = false;
+                    isLongBreak = false;
+                    updateTimerDisplay(settings.focusTime * 60);
+                    startBtn.textContent = 'Start Focus';
+                } else {
+                    updateTimerDisplay(settings.focusTime * 60);
+                }
+                
+                startBtn.disabled = false;
+                pauseBtn.disabled = true;
+                lebronImage.src = lebronImages.focus;
+            }
+            
+            function timerCompleted() {
+                if (!isBreak && !isLongBreak) {
+                    // Focus session completed
+                    completedSessions++;
+                    totalFocusTime += settings.focusTime;
+                    updateStats();
+                    
+                    // Check if it's time for a long break
+                    if (completedSessions % settings.sessionsBeforeLongBreak === 0) {
+                        isLongBreak = true;
+                        isBreak = false;
+                        updateTimerDisplay(settings.longBreakTime * 60);
+                        startBtn.textContent = 'Start Long Break';
+                        lebronImage.src = lebronImages.completed;
+                    } else {
+                        isBreak = true;
+                        isLongBreak = false;
+                        updateTimerDisplay(settings.breakTime * 60);
+                        startBtn.textContent = 'Start Break';
+                        lebronImage.src = lebronImages.completed;
+                    }
+                } else {
+                    // Break completed
+                    isBreak = false;
+                    isLongBreak = false;
+                    updateTimerDisplay(settings.focusTime * 60);
+                    startBtn.textContent = 'Start Focus';
+                    lebronImage.src = lebronImages.focus;
+                }
+                
+                startBtn.disabled = false;
+                pauseBtn.disabled = true;
+                isRunning = false;
+                
+                // Play notification sound
+                playNotification();
+            }
+            
+            function updateTimerDisplay(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = seconds % 60;
+                timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+            }
+            
+            function updateStats() {
+                sessionCount.textContent = completedSessions;
+                totalTime.textContent = `${totalFocusTime} min`;
+                
+                // Update streak (simplified for demo)
+                const today = new Date().toDateString();
+                const lastStudyDay = localStorage.getItem('lastStudyDay');
+                
+                if (lastStudyDay !== today) {
+                    localStorage.setItem('lastStudyDay', today);
+                    
+                    const streak = parseInt(currentStreak.textContent) || 0;
+                    const lastDate = lastStudyDay ? new Date(lastStudyDay) : null;
+                    const currentDate = new Date();
+                    
+                    // Check if last study was yesterday
+                    if (lastDate && (currentDate - lastDate) / (1000 * 60 * 60 * 24) <= 2) {
+                        currentStreak.textContent = `${streak + 1} days`;
+                    } else {
+                        currentStreak.textContent = '1 day';
+                    }
+                }
+                
+                // Save stats to localStorage
+                saveStats();
+            }
+            
+            function saveSettings() {
+                settings.focusTime = parseInt(focusTimeInput.value) || 25;
+                settings.breakTime = parseInt(breakTimeInput.value) || 5;
+                settings.longBreakTime = parseInt(longBreakTimeInput.value) || 15;
+                settings.sessionsBeforeLongBreak = parseInt(sessionsInput.value) || 4;
+                
+                // Validate settings
+                settings.focusTime = Math.min(Math.max(settings.focusTime, 1), 60);
+                settings.breakTime = Math.min(Math.max(settings.breakTime, 1), 30);
+                settings.longBreakTime = Math.min(Math.max(settings.longBreakTime, 5), 60);
+                settings.sessionsBeforeLongBreak = Math.min(Math.max(settings.sessionsBeforeLongBreak, 1), 10);
+                
+                // Update inputs with validated values
+                focusTimeInput.value = settings.focusTime;
+                breakTimeInput.value = settings.breakTime;
+                longBreakTimeInput.value = settings.longBreakTime;
+                sessionsInput.value = settings.sessionsBeforeLongBreak;
+                
+                // Reset timer with new settings
+                resetTimer();
+                
+                // Save to localStorage
+                localStorage.setItem('timerSettings', JSON.stringify(settings));
+                
+                // Show confirmation
+                alert('Settings saved!');
+            }
+            
+            function loadSettings() {
+                const savedSettings = localStorage.getItem('timerSettings');
+                if (savedSettings) {
+                    settings = JSON.parse(savedSettings);
+                    
+                    // Update inputs
+                    focusTimeInput.value = settings.focusTime;
+                    breakTimeInput.value = settings.breakTime;
+                    longBreakTimeInput.value = settings.longBreakTime;
+                    sessionsInput.value = settings.sessionsBeforeLongBreak;
+                    
+                    // Update timer display
+                    updateTimerDisplay(settings.focusTime * 60);
+                }
+            }
+            
+            function saveStats() {
+                const stats = {
+                    completedSessions,
+                    totalFocusTime,
+                    streak: currentStreak.textContent
+                };
+                localStorage.setItem('timerStats', JSON.stringify(stats));
+            }
+            
+            function loadStats() {
+                const savedStats = localStorage.getItem('timerStats');
+                if (savedStats) {
+                    const stats = JSON.parse(savedStats);
+                    completedSessions = stats.completedSessions || 0;
+                    totalFocusTime = stats.totalFocusTime || 0;
+                    
+                    sessionCount.textContent = completedSessions;
+                    totalTime.textContent = `${totalFocusTime} min`;
+                    currentStreak.textContent = stats.streak || '0 days';
+                }
+            }
+            
+            function playNotification() {
+                // Create audio element for notification
+                const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3');
+                audio.play().catch(error => console.log('Audio play failed:', error));
+            }
+        });
+    </script>
+</body>
+</html> 

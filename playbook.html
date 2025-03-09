@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Playbook - LeStudy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* The Playbook specific styles */
+        .playbook-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .page-header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background-color: var(--lakers-purple);
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .playbook-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+        }
+        
+        .sidebar {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            height: fit-content;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-section h3 {
+            color: var(--lakers-purple);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--lakers-gold);
+        }
+        
+        .sidebar-list {
+            list-style: none;
+        }
+        
+        .sidebar-list li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .sidebar-list a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--dark-gray);
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        .sidebar-list a:hover,
+        .sidebar-list a.active {
+            background-color: rgba(85, 37, 131, 0.1);
+            color: var(--lakers-purple);
+        }
+        
+        .sidebar-list .count {
+            margin-left: auto;
+            background-color: var(--lakers-purple);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        
+        .main-content {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+        }
+        
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .content-title {
+            font-size: 1.8rem;
+            color: var(--lakers-purple);
+        }
+        
+        .add-task-btn {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--lakers-purple);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .add-task-btn:hover {
+            background-color: #4a1f73;
+            transform: translateY(-2px);
+        }
+        
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .filter-options {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .filter-option {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .filter-option.active {
+            background-color: rgba(85, 37, 131, 0.1);
+            color: var(--lakers-purple);
+        }
+        
+        .sort-dropdown {
+            position: relative;
+        }
+        
+        .sort-btn {
+            padding: 0.5rem 1rem;
+            background-color: white;
+            border: 1px solid var(--medium-gray);
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .task-list {
+            list-style: none;
+        }
+        
+        .task-item {
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: var(--light-gray);
+            margin-bottom: 1rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .task-item:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+        
+        .task-checkbox {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--lakers-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+        
+        .task-checkbox.completed {
+            background-color: var(--lakers-purple);
+            color: white;
+        }
+        
+        .task-content {
+            flex-grow: 1;
+        }
+        
+        .task-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-gray);
+        }
+        
+        .task-title.completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+        
+        .task-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .task-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .task-description {
+            margin-top: 0.5rem;
+            color: #666;
+        }
+        
+        .task-priority {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .priority-high {
+            background-color: rgba(229, 96, 32, 0.2);
+            color: var(--accent-orange);
+        }
+        
+        .priority-medium {
+            background-color: rgba(253, 185, 39, 0.2);
+            color: #d4a000;
+        }
+        
+        .priority-low {
+            background-color: rgba(85, 37, 131, 0.2);
+            color: var(--lakers-purple);
+        }
+        
+        .task-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .task-action-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+            background-color: white;
+            border: 1px solid var(--medium-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--dark-gray);
+        }
+        
+        .task-action-btn:hover {
+            background-color: var(--lakers-purple);
+            color: white;
+            border-color: var(--lakers-purple);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+        
+        .empty-state-icon {
+            font-size: 4rem;
+            color: var(--medium-gray);
+            margin-bottom: 1rem;
+        }
+        
+        .empty-state h3 {
+            font-size: 1.5rem;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+        }
+        
+        .empty-state p {
+            color: #888;
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .task-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-gray);
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--lakers-purple);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .cancel-btn {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--medium-gray);
+            color: var(--dark-gray);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .save-btn {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--lakers-purple);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .cancel-btn:hover {
+            background-color: #d1d1d1;
+        }
+        
+        .save-btn:hover {
+            background-color: #4a1f73;
+        }
+        
+        @media (max-width: 992px) {
+            .playbook-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                margin-bottom: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .filter-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .content-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <span class="crown-icon"><i class="fas fa-crown"></i></span>
+                <h1>LeStudy</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="kings-court.html">King's Court</a>
+                <a href="leflashcards.html">LeFlashcards</a>
+                <a href="playbook.html" class="active">The Playbook</a>
+                <a href="film-room.html">Film Room</a>
+            </div>
+            <div class="auth-buttons">
+                <button class="login-btn">Login</button>
+                <button class="signup-btn">Sign Up</button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>The Playbook</h1>
+                <p>Organize your assignments like a champion with our LeBron-inspired task management system</p>
+            </div>
+        </section>
+
+        <section class="playbook-container">
+            <div class="playbook-layout">
+                <div class="sidebar">
+                    <div class="sidebar-section">
+                        <h3>Game Schedule</h3>
+                        <ul class="sidebar-list">
+                            <li><a href="#" class="active">All Tasks <span class="count">8</span></a></li>
+                            <li><a href="#">Today <span class="count">3</span></a></li>
+                            <li><a href="#">This Week <span class="count">5</span></a></li>
+                            <li><a href="#">Upcoming <span class="count">2</span></a></li>
+                            <li><a href="#">Completed <span class="count">12</span></a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3>Subjects</h3>
+                        <ul class="sidebar-list">
+                            <li><a href="#">Mathematics <span class="count">2</span></a></li>
+                            <li><a href="#">Science <span class="count">3</span></a></li>
+                            <li><a href="#">History <span class="count">1</span></a></li>
+                            <li><a href="#">English <span class="count">2</span></a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3>Priority Levels</h3>
+                        <ul class="sidebar-list">
+                            <li><a href="#">Finals <span class="count">2</span></a></li>
+                            <li><a href="#">Playoffs <span class="count">3</span></a></li>
+                            <li><a href="#">Regular Season <span class="count">3</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="main-content">
+                    <div class="content-header">
+                        <h2 class="content-title">All Tasks</h2>
+                        <button class="add-task-btn" id="add-task-btn">+ Add New Task</button>
+                    </div>
+                    
+                    <div class="filter-bar">
+                        <div class="filter-options">
+                            <div class="filter-option active">All</div>
+                            <div class="filter-option">Active</div>
+                            <div class="filter-option">Completed</div>
+                        </div>
+                        
+                        <div class="sort-dropdown">
+                            <button class="sort-btn">Sort by: Due Date ▼</button>
+                        </div>
+                    </div>
+                    
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <div class="task-checkbox"></div>
+                            <div class="task-content">
+                                <h3 class="task-title">Math Assignment - Calculus Problems</h3>
+                                <div class="task-details">
+                                    <span class="task-detail"><i class="fas fa-calendar-alt"></i> Due: Tomorrow, 11:59 PM</span>
+                                    <span class="task-detail"><i class="fas fa-book"></i> Subject: Mathematics</span>
+                                    <span class="task-priority priority-high">Finals</span>
+                                </div>
+                                <p class="task-description">Complete problems 1-15 from Chapter 7 on integration techniques.</p>
+                            </div>
+                            <div class="task-actions">
+                                <button class="task-action-btn"><i class="fas fa-edit"></i></button>
+                                <button class="task-action-btn"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </li>
+                        
+                        <li class="task-item">
+                            <div class="task-checkbox"></div>
+                            <div class="task-content">
+                                <h3 class="task-title">Science Lab Report</h3>
+                                <div class="task-details">
+                                    <span class="task-detail"><i class="fas fa-calendar-alt"></i> Due: Friday, 5:00 PM</span>
+                                    <span class="task-detail"><i class="fas fa-book"></i> Subject: Science</span>
+                                    <span class="task-priority priority-medium">Playoffs</span>
+                                </div>
+                                <p class="task-description">Write a lab report on the chemical reactions experiment from last week's lab.</p>
+                            </div>
+                            <div class="task-actions">
+                                <button class="task-action-btn"><i class="fas fa-edit"></i></button>
+                                <button class="task-action-btn"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </li>
+                        
+                        <li class="task-item">
+                            <div class="task-checkbox completed">✓</div>
+                            <div class="task-content">
+                                <h3 class="task-title completed">History Essay Outline</h3>
+                                <div class="task-details">
+                                    <span class="task-detail"><i class="fas fa-calendar-alt"></i> Due: Yesterday, 11:59 PM</span>
+                                    <span class="task-detail"><i class="fas fa-book"></i> Subject: History</span>
+                                    <span class="task-priority priority-low">Regular Season</span>
+                                </div>
+                                <p class="task-description">Create an outline for the essay on the Industrial Revolution.</p>
+                            </div>
+                            <div class="task-actions">
+                                <button class="task-action-btn"><i class="fas fa-edit"></i></button>
+                                <button class="task-action-btn"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </li>
+                        
+                        <li class="task-item">
+                            <div class="task-checkbox"></div>
+                            <div class="task-content">
+                                <h3 class="task-title">English Literature Analysis</h3>
+                                <div class="task-details">
+                                    <span class="task-detail"><i class="fas fa-calendar-alt"></i> Due: Next Monday, 9:00 AM</span>
+                                    <span class="task-detail"><i class="fas fa-book"></i> Subject: English</span>
+                                    <span class="task-priority priority-high">Finals</span>
+                                </div>
+                                <p class="task-description">Write a 5-page analysis of the themes in "To Kill a Mockingbird".</p>
+                            </div>
+                            <div class="task-actions">
+                                <button class="task-action-btn"><i class="fas fa-edit"></i></button>
+                                <button class="task-action-btn"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Add Task Modal -->
+        <div class="task-modal" id="task-modal">
+            <div class="modal-content">
+                <span class="close-modal" id="close-modal">&times;</span>
+                <h2 class="modal-title">Add New Task</h2>
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="task-title">Task Title</label>
+                        <input type="text" id="task-title" placeholder="e.g., Complete Math Homework" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="task-description">Description</label>
+                        <textarea id="task-description" placeholder="Describe the task details..."></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-subject">Subject</label>
+                            <select id="task-subject" required>
+                                <option value="">Select Subject</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Science">Science</option>
+                                <option value="History">History</option>
+                                <option value="English">English</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="task-priority">Priority Level</label>
+                            <select id="task-priority" required>
+                                <option value="">Select Priority</option>
+                                <option value="Finals">Finals (High)</option>
+                                <option value="Playoffs">Playoffs (Medium)</option>
+                                <option value="Regular Season">Regular Season (Low)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-due-date">Due Date</label>
+                            <input type="date" id="task-due-date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="task-due-time">Due Time</label>
+                            <input type="time" id="task-due-time">
+                        </div>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="button" class="cancel-btn" id="cancel-task">Cancel</button>
+                        <button type="submit" class="save-btn">Add Task</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="crown-icon"><i class="fas fa-crown"></i></span>
+                <h2>LeStudy</h2>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Features</h3>
+                    <a href="kings-court.html">King's Court</a>
+                    <a href="leflashcards.html">LeFlashcards</a>
+                    <a href="playbook.html">The Playbook</a>
+                    <a href="film-room.html">Film Room</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <a href="#">About Us</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <a href="#">Help Center</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 LeStudy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // The Playbook Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Modal elements
+            const addTaskBtn = document.getElementById('add-task-btn');
+            const taskModal = document.getElementById('task-modal');
+            const closeModalBtn = document.getElementById('close-modal');
+            const cancelTaskBtn = document.getElementById('cancel-task');
+            const taskForm = document.getElementById('task-form');
+            
+            // Task elements
+            const taskCheckboxes = document.querySelectorAll('.task-checkbox');
+            const taskActionBtns = document.querySelectorAll('.task-action-btn');
+            const filterOptions = document.querySelectorAll('.filter-option');
+            
+            // Open modal
+            addTaskBtn.addEventListener('click', function() {
+                taskModal.style.display = 'flex';
+            });
+            
+            // Close modal
+            function closeModal() {
+                taskModal.style.display = 'none';
+                taskForm.reset();
+            }
+            
+            closeModalBtn.addEventListener('click', closeModal);
+            cancelTaskBtn.addEventListener('click', closeModal);
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === taskModal) {
+                    closeModal();
+                }
+            });
+            
+            // Form submission
+            taskForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const taskTitle = document.getElementById('task-title').value;
+                const taskDescription = document.getElementById('task-description').value;
+                const taskSubject = document.getElementById('task-subject').value;
+                const taskPriority = document.getElementById('task-priority').value;
+                const taskDueDate = document.getElementById('task-due-date').value;
+                const taskDueTime = document.getElementById('task-due-time').value;
+                
+                // Here you would typically send this data to a server
+                // For demo purposes, we'll just log it and close the modal
+                console.log('New Task:', {
+                    title: taskTitle,
+                    description: taskDescription,
+                    subject: taskSubject,
+                    priority: taskPriority,
+                    dueDate: taskDueDate,
+                    dueTime: taskDueTime
+                });
+                
+                // Show success message
+                alert('Task added successfully!');
+                
+                // Close modal
+                closeModal();
+            });
+            
+            // Task checkbox toggle
+            taskCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('click', function() {
+                    this.classList.toggle('completed');
+                    
+                    const taskTitle = this.nextElementSibling.querySelector('.task-title');
+                    taskTitle.classList.toggle('completed');
+                    
+                    if (this.classList.contains('completed')) {
+                        this.innerHTML = '✓';
+                    } else {
+                        this.innerHTML = '';
+                    }
+                });
+            });
+            
+            // Filter options
+            filterOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    filterOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Here you would filter the tasks based on the selected option
+                    // For demo purposes, we'll just log the selected filter
+                    console.log('Filter selected:', this.textContent);
+                });
+            });
+            
+            // Task action buttons (edit/delete)
+            taskActionBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const taskItem = this.closest('.task-item');
+                    const taskTitle = taskItem.querySelector('.task-title').textContent;
+                    
+                    if (this.querySelector('.fa-edit')) {
+                        // Edit task
+                        alert(`Edit task: ${taskTitle}`);
+                    } else if (this.querySelector('.fa-trash-alt')) {
+                        // Delete task
+                        if (confirm(`Are you sure you want to delete task: ${taskTitle}?`)) {
+                            taskItem.remove();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

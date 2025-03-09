@@ -1,0 +1,5 @@
+build:
+  html:
+    source: .
+    destination: .
+    index: index.html
